@@ -1,8 +1,8 @@
-var userData = [
+var friendsList = [
   {
-    "name": "Sam",
+    "name": "Terry",
     "photo": "https://timedotcom.files.wordpress.com/2017/12/terry-crews-person-of-year-2017-time-magazine-2.jpg",
-    "scores":[
+    "preferences":[
         5,
       	1,
       	4,
@@ -17,8 +17,8 @@ var userData = [
   },
   {
     "name": "Joe",
-    "photo": "https://timedotcom.files.wordpress.com/2017/12/terry-crews-person-of-year-2017-time-magazine-2.jpg",
-    "scores":[
+    "photo": "https://m.media-amazon.com/images/M/MV5BYjYwMzZjMmMtMzgyMi00NDM5LWE5ZDgtMmI1MGJjN2Q3MTdiXkEyXkFqcGdeQXVyNzU1NzE3NTg@._V1_CR0,30,250,141_AL_UX477_CR0,0,477,268_AL_.jpg",
+    "preferences":[
         3,
         2,
         2,
@@ -33,8 +33,8 @@ var userData = [
   },
   {
     "name": "Jane",
-    "photo": "https://timedotcom.files.wordpress.com/2017/12/terry-crews-person-of-year-2017-time-magazine-2.jpg",
-    "scores":[
+    "photo": "https://compote.slate.com/images/a7f3aea3-f191-4871-a02d-c8dc3b7330f5.jpg?width=780&height=520&rect=1180x787&offset=0x0",
+    "preferences":[
         1,
         1,
         1,
@@ -50,4 +50,4 @@ var userData = [
 ];
 
 // Note how we export the array. This makes it accessible to other files using require.
-module.exports = userData;
+module.exports = friendsList;
