@@ -1,4 +1,4 @@
-var friendsList = [
+var friendsArray = [
   {
     "name": "Terry",
     "photo": "https://timedotcom.files.wordpress.com/2017/12/terry-crews-person-of-year-2017-time-magazine-2.jpg",
@@ -50,4 +50,4 @@ var friendsList = [
 ];
 
 // Note how we export the array. This makes it accessible to other files using require.
-module.exports = friendsList;
+module.exports = friendsArray;

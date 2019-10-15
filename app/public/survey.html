@@ -3,9 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <title>Friend Finder App</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-  <script src="https://code.jquery.com/jquery.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.3.1/sketchy/bootstrap.min.css">
 </head>
 
@@ -16,39 +19,42 @@
     width: 100%;
   }
   
+  .btn{
+    background-color: black;
+    color:white;
+  }
 </style>
 
 <body>
 
 <div class="container">
-  
-  
-  <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h3 class="modal-title" id="exampleModalLabel">Best Match</h3>
-          <button type="button" class="close" d="close-modal" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <h4 id="match-name"></h4>
-          <img id="match-image" src="">
-        </div>
-        <div class="modal-footer">
-          <button type="button" id="close-modal" class="btn btn-secondary" data-dismiss="modal">Close</button>
+    <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h3 class="modal-title" id="exampleModalLabel">Best Match</h3>
+              <button type="button" class="close" d="close-modal" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <h4 id="match-name"></h4>
+              <img id="match-image" src="">
+            </div>
+            <div class="modal-footer">
+              <button type="button" id="close-modal" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
   
-
+  
+  
   <div class="jumbotron text-center">
     <h1 class=""><i class="fa fa-facebook-square" aria-hidden="true"></i> Friend Finder</h1>
     <h3>Hey You Should Answer A few Questions! Only If You Want To Find Your New Best Friend Though!</h3>
     <hr>
-    <a href="/"><button type="button" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-home"></span></button></a>
+    <a href="/"><button type="button" id="btn btn-default btn-lg" class="btn btn-default btn-lg">Home</button></a>
   </div>
 
   <div class="row">
@@ -188,28 +194,37 @@
     </div>
   </div>
   </div>
+</div class="footer text-center">
+
+
+
+  <a href="/api/friends">API Friends List</a>
+  <span>|</span>
+  <br>
+
 </div>
- 
 </div>
 
 <script type="text/javascript">
-$("#add-btn").on("click", function(event) {
-event.preventDefault();
-var newFriend = {
-  name: $("#name").val().trim(),
-  photo: $("#phone").val().trim(),
-  preferences: [$("#question1").val(), $("#question2").val(), $("#question3").val(), $("#question4").val(), $("#question5").val(), $("#question6").val(), $("#question7").val(), $("#question8").val(), $("#question9").val(), $("#question10").val()]
-};
-$("#friend-form").html("Thanks for your submission! Meet your new best friend!");
-$.post("/api/friends", newFriend)
-.done(function(data) {
-  $("#match-name").text(data.name);
-  $("#match-image").attr("src", data.photo);
-});
-});
-$("#close-modal").on("click", function(){
-  setTimeout(function(){location.reload()}, 1000);
-});
+  $("#add-btn").on("click", function(event) {
+  event.preventDefault();
+  var newFriend = {
+    name: $("#name").val().trim(),
+    photo: $("#phone").val().trim(),
+    preferences: [$("#question1").val(), $("#question2").val(), $("#question3").val(), $("#question4").val(), $("#question5").val(), $("#question6").val(), $("#question7").val(), $("#question8").val(), $("#question9").val(), $("#question10").val()]
+  };
+  $("#friend-form").html("Thanks for your submission! Meet your new best friend!");
+  $.post("/api/friends", newFriend)
+  .done(function(data) {
+    $("#match-name").text(data.name);
+    $("#match-image").attr("src", data.photo);
+  });
+  });
+  $("#close-modal").on("click", function(){
+    setTimeout(function(){location.reload()}, 1000);
+  });
 </script>
+
+
 </body>
 </html>
